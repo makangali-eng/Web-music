@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<title>Мұқағали Мақатаев — әндер</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f5f5dc;
+    color: #5a3b1e;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* Цитата */
+.quote {
+    margin-top: 40px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Портрет */
+.portrait {
+    margin: 30px 0;
+}
+
+.portrait img {
+    width: 220px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Имя */
+h1 {
+    margin: 10px 0 5px;
+}
+
+.subtitle {
+    color: #8b6a3e;
+    margin-bottom: 40px;
+}
+
+/* Заголовок песен */
+.songs-title {
+    margin: 40px auto 25px;
+    font-size: 22px;
+    border-bottom: 2px solid #f6d28b;
+    display: inline-block;
+    padding-bottom: 8px;
+}
+
+/* Плеер */
+.player {
+    max-width: 360px;
+    margin: 0 auto 60px;
+    padding: 0 10px;
+}
+
+#current-title {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+audio {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* Кнопки песен */
+#playlist button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: 2px solid #f6d28b;
+    background: transparent;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#playlist button:hover {
+    background: #f6d28b;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Цитата -->
+<div class="quote">
+    «Бақыт деген — сенің бала күндерің»
+</div>
+
+<!-- Портрет -->
+<div class="portrait">
+    <!-- Егер сурет жоқ болса, уақытша қалдыра бер -->
+    <img src="https://avatars.mds.yandex.net/i?id=ddfcb31391d446166d184390e72df10f_l-7185373-images-thumbs&ref=rim&n=13&w=1080&h=1343" alt="Мұқағали Мақатаев">
+</div>
+
+<!-- Аты -->
+<h1>Мұқағали Мақатаев</h1>
+<div class="subtitle">Қазақтың көрнекті ақыны</div>
+
+<!-- Заголовок -->
+<h2 class="songs-title">
+    Мұқағали Мақатаев сөзіне жазылған танымал әндер
+</h2>
+
+<!-- MP3 плеер -->
+<div class="player">
+    <div id="current-title">Әнді таңдаңыз</div>
+    <audio id="audio" controls></audio>
+    <div id="playlist"></div>
+</div>
+
+<script>
+const songs = [
+    {
+        title: "Сарыжайлау",
+        file: "сарыжайлау.mp3"
+    },
+    {
+        title: "Поэзия",
+        file: "поэзия (1).mp3"
+    },
+    {
+        title: "Айхай далам",
+        file: "айхайдалам.mp3"
+    },
+    {
+        title: "Ей, өмір зымырап барасынба",
+        file: "ей омир зымырап барасынба(1).mp3"
+    },
+    {
+        title: "Ей өмір",
+        file: "ейомир.mp3"
+    },
+    {
+        title: "Несіне асығады?",
+        file: "Несіне асығады_.mp3"
+    },
+    {
+        title: "Дұшпаның бар ма",
+        file: "дұшпаның барма.mp3"
+    },
+    {
+        title: "Қиын не бар",
+        file: "қиыннебар.mp3"
+    },
+    {
+        title: "Қарлығашым, келдің бе",
+        file: "қарлығашымкелдіңбе.mp3"
+    },
+    {
+        title: "Өр елім",
+        file: "өрелім.mp3"
+    },
+    {
+        title: "Үш бақытым",
+        file: "үшбақытым.mp3"
+    },
+    {
+        title: "Аңса жаным",
+        file: "аңсажаным.mp3"
+    },
+    {
+        title: "Бақытыңды жырлайды",
+        file: "бақытыңдыжырлайды.mp3"
+    },
+    {
+        title: "Арманда",
+        file: "арманда.mp3"
+    },
+    {
+        title: "Жас қайың",
+        file: "жасқайың.mp3"
+    }
+];
+
+const audio = document.getElementById("audio");
+const playlist = document.getElementById("playlist");
+const currentTitle = document.getElementById("current-title");
+
+songs.forEach(song => {
+    const btn = document.createElement("button");
+    btn.textContent = song.title;
+    btn.onclick = () => {
+        audio.src = song.file;
+        currentTitle.textContent = song.title;
+        audio.play();
+    };
+    playlist.appendChild(btn);
+});
+</script>
+
+</body>
+</html>
